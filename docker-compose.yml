@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  calculator:
+    build: .
+    ports:
+      - "2002:2002"
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2002"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+
